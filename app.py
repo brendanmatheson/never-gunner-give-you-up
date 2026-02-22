@@ -178,7 +178,7 @@ teams = sorted(pd.concat([df['HomeTeam'], df['AwayTeam']]).unique())
 # Header
 st.markdown('<p class="main-header">⚽ Premier League Match Predictor</p>', unsafe_allow_html=True)
 st.markdown(
-    '<p class="sub-header">Machine Learning model trained on 1,800+ EPL matches | Accuracy: 52.5% | Brier Score: 0.197</p>',
+    '<p class="sub-header">Machine Learning model trained on 1,800+ matches | Accuracy: 52.5% | Brier Score: 0.197</p>',
     unsafe_allow_html=True
 )
 
