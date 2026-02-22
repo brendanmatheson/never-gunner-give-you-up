@@ -1,5 +1,6 @@
 """
-EPL Match Predictor - Streamlit Web App
+Never Gunner Give You Up
+Arsenal Crystal Ball - Streamlit Web App
 Interactive machine learning predictions for Premier League matches
 """
 
@@ -12,7 +13,7 @@ import plotly.graph_objects as go
 
 # Page config
 st.set_page_config(
-    page_title="EPL Match Predictor",
+    page_title="Never Gunner Give You Up - Arsenal Crystal Ball",
     page_icon="⚽",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -228,7 +229,7 @@ with col1:
     home_team = st.selectbox(
         "🏠 Home Team",
         teams,
-        index=teams.index('Arsenal') if 'Arsenal' in teams else 0,
+        index=teams.index('Tottenham') if 'Tottenham' in teams else 0,
         key='home'
     )
 
@@ -236,7 +237,7 @@ with col2:
     away_team = st.selectbox(
         "✈️ Away Team",
         teams,
-        index=teams.index('Tottenham') if 'Tottenham' in teams else 1,
+        index=teams.index('Arsenal') if 'Arsenal' in teams else 1,
         key='away'
     )
 
@@ -364,28 +365,6 @@ if st.button("⚽ Make Prediction", type="primary", use_container_width=True):
                     form_analysis = f"Teams in **similar form** ({form_diff:+.0f} points difference)"
                 
                 st.info(f"📊 **Form Analysis:** {form_analysis}")
-                
-                # Fair odds
-                st.markdown("---")
-                st.subheader("💰 Fair Betting Odds")
-                st.markdown("*Model-implied fair odds (no bookmaker margin)*")
-                
-                col1, col2, col3 = st.columns(3)
-                
-                with col1:
-                    if proba['Home Win'] > 0:
-                        odds = 1 / proba['Home Win']
-                        st.metric(f"{home_team} Win", f"{odds:.2f}")
-                
-                with col2:
-                    if proba['Draw'] > 0:
-                        odds = 1 / proba['Draw']
-                        st.metric("Draw", f"{odds:.2f}")
-                
-                with col3:
-                    if proba['Away Win'] > 0:
-                        odds = 1 / proba['Away Win']
-                        st.metric(f"{away_team} Win", f"{odds:.2f}")
 
 # Footer
 st.markdown("---")
@@ -411,5 +390,5 @@ st.info("""
 **⚠️ Disclaimer:** This model is for educational and entertainment purposes only. 
 Football matches are inherently unpredictable. This model achieves 52.5% accuracy, 
 which is near the theoretical ceiling due to the random nature of football. 
-Do not use for actual betting decisions.
+Do not use for actual financial decisions.
 """)
